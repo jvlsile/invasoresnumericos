@@ -1,4 +1,4 @@
-PATRULLA NUMÉRICA · paquete PWA (versión v16)
+PATRULLA NUMÉRICA · paquete PWA (versión v17)
 ============================================
 
 Contenido

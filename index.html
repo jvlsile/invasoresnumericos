@@ -462,7 +462,7 @@ body.ingame .stage[data-n="2"] .spells{grid-area:sp}
 'use strict';
 const $=(s,r)=>(r||document).querySelector(s);
 const $$=(s,r)=>Array.from((r||document).querySelectorAll(s));
-const APP_VER='v16';
+const APP_VER='v17';
 const W=400,H=500,GROUND=458;
 const FONT='"Baloo 2","Nunito",system-ui,sans-serif';
 const PCOL=['#FF7A66','#5CC8FF','#FFD84D','#62E3A4','#FFA24D','#E8ECFF'];
@@ -1604,7 +1604,7 @@ function renderMenu(){
   $$('.mode[data-mode="host"],.mode[data-mode="join"]').forEach(b=>{b.disabled=NET.state==='none';});
   $('#btnGo').disabled=online&&NET.state!=='ok';
 }
-$('#v-menu').addEventListener('click',e=>{
+function menuClick(e){
   const b=e.target.closest('button'); if(!b||b.disabled) return; const d=b.dataset;
   if(d.mode){ menu.mode=d.mode; }
   else if(d.course){ menu.course=+d.course; if(!menu.touched) menu.tables=(COURSES[menu.course].tables||ALLT).slice(); }
@@ -1616,7 +1616,9 @@ $('#v-menu').addEventListener('click',e=>{
     else { const t=+d.table, i=menu.tables.indexOf(t); if(i>=0){ if(menu.tables.length>1) menu.tables.splice(i,1); } else menu.tables.push(t); menu.tables.sort((a,b)=>a-b); }
   } else return;
   saveMenu(); renderMenu();
-});
+}
+$('#v-menu').addEventListener('click',menuClick);
+$('#v-settings').addEventListener('click',menuClick);
 $('#inName').addEventListener('input',e=>{menu.name=e.target.value;saveMenu();});
 $('#inName2').addEventListener('input',e=>{menu.name2=e.target.value;saveMenu();});
 $('#inCode').addEventListener('input',e=>{e.target.value=e.target.value.replace(/[^A-Za-z]/g,'').toUpperCase().slice(0,6);});
