@@ -16,10 +16,17 @@ Cómo publicarlo
      Después funciona sin conexión.
 
 Qué funciona sin Claude
-  Solo, Dos en una pantalla (cooperativo en tableta o pizarra digital): sí.
-  Sala en línea de 2 a 4 dispositivos: no. Ese modo usa la conexión en tiempo real
-  de Claude y aquí se desactiva solo. Para tenerlo en una web propia hace falta
-  un servidor de mensajes (WebSocket); se puede añadir después.
+  Solo y Dos en una pantalla: sí, incluso sin internet.
+  Sala en línea de 2 a 4 dispositivos: sí, con internet. Usa conexión directa
+  entre dispositivos (WebRTC, librería PeerJS incluida en peerjs.min.js). El
+  anfitrión crea la sala y los demás entran con el código de 4 letras.
+  - Para encontrarse usa el servidor público gratuito de PeerJS (0.peerjs.com).
+    No guarda datos de la partida, solo ayuda a que los dispositivos se vean.
+  - Algunas redes de colegio bloquean WebRTC. Si no conecta, prueba con datos
+    móviles o pide a informática abrir UDP/WebRTC.
+  - Si prefieres tu propio servidor (npm i peer), añade antes de peerjs.min.js
+    en index.html:
+      <script>window.PN_PEER_OPTS={host:'tu.servidor.es',port:443,path:'/',secure:true};</script>
 
 Actualizar
   Cuando cambies index.html, sube el número de VERSION en sw.js
