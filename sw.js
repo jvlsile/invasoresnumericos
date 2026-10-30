@@ -1,7 +1,7 @@
 /* Service worker de Patrulla Numérica: funciona sin conexión.
    Sube el número de VERSION cada vez que cambies index.html para que los dispositivos se actualicen. */
-const VERSION = 'patrulla-v4';
-const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png'];
+const VERSION = 'patrulla-v5';
+const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/apple-touch-icon.png', './icons/icon-192.png', './icons/icon-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
