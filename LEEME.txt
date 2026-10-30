@@ -1,0 +1,39 @@
+PATRULLA NUMÉRICA · paquete PWA (versión v16)
+============================================
+
+Contenido
+  index.html            el juego completo (un solo archivo)
+  manifest.webmanifest  nombre, colores e iconos de la app
+  sw.js                 permite jugar sin conexión y actualizarse solo
+  peerjs.min.js         conexión directa entre dispositivos (salas en línea)
+  fonts/ fonts.css      tipografías incluidas (no se contacta con Google)
+  icons/                iconos de la app
+
+Cómo publicarlo
+  1. Sube TODO el contenido de esta carpeta a GitHub Pages (u otro alojamiento con HTTPS).
+  2. Abre la dirección con internet. En Ajustes (abajo) se ve la versión.
+  3. Instalar: Chrome/Edge > "Instalar app". iPad/iPhone: Safari > Compartir > "Añadir a pantalla de inicio".
+  4. Después de la primera visita funciona sin conexión.
+
+Actualizar
+  Sube los archivos nuevos. Al abrir la app con internet se actualiza sola.
+  Si cambias index.html a mano, sube el número VERSION de sw.js.
+
+Qué hay en el menú
+  Jugar · Ajustes (curso, operaciones, copia de seguridad) · Tienda · Wiki (guías del juego).
+
+Datos y privacidad
+  No hay cuentas, anuncios ni envío de datos. El progreso (estrellas, avatar, récords y ajustes)
+  se guarda solo en el dispositivo. Para no perderlo: Ajustes > Mi progreso (copia en archivo,
+  código corto o guardado automático en Chrome/Edge de ordenador).
+
+Salas en línea
+  Conexión directa entre 2 y 4 dispositivos con un código de 6 letras. Para encontrarse usa el
+  servidor público gratuito de PeerJS, que no guarda datos de la partida. Los jugadores de una sala
+  pueden ver la IP de los demás (propio de WebRTC). Si una red de colegio lo bloquea, prueba con
+  datos móviles. Servidor propio: añade antes de peerjs.min.js en index.html
+    <script>window.PN_PEER_OPTS={host:'tu.servidor.es',port:443,path:'/',secure:true};</script>
+
+Voz
+  Botón "Voz" en la partida (Chrome/Edge/Android, Safari reciente). Pide permiso de micrófono.
+  En iPhone, si la app instalada no lo permite, abrir desde Safari.
