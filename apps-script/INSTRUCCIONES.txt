@@ -1,0 +1,33 @@
+GUARDAR LAS PARTIDAS EN GOOGLE DRIVE (hoja de cálculo)  ·  unos 5 minutos
+=========================================================================
+Esta carpeta NO hace falta subirla a GitHub. Solo sirve para este paso.
+
+1. En Google Drive crea una hoja de cálculo nueva (nombre: "Patrulla Numérica").
+2. Menú Extensiones > Apps Script. Borra lo que haya y pega todo el contenido de Codigo.gs.
+3. Arriba del código cambia las dos líneas:
+      STUDENT_KEY = una clave inventada (ej. "mesa-7391")
+      TEACHER_PW  = la contraseña del profesor (ej. "profe-2026")
+4. Pulsa Implementar > Nueva implementación > tipo "Aplicación web":
+      Ejecutar como: Yo
+      Quién tiene acceso: Cualquier usuario
+   Autoriza los permisos que pida y copia la dirección que termina en /exec.
+5. En tu repositorio de GitHub edita config.js:
+      window.PN_SYNC = { url: 'LA_DIRECCION_/exec', key: 'la misma STUDENT_KEY' };
+   y en sw.js sube el número de VERSION (patrulla-v10, v11...) para que los
+   dispositivos descarguen la versión nueva.
+6. Juega una partida: aparecerá una fila en la pestaña "Partidas" de la hoja.
+   En el menú del juego saldrá el botón "Panel del profesor" (pide TEACHER_PW).
+
+Qué se guarda por partida: apodo, curso, tipo, modo, puntos, nivel, oleada, naves,
+disparos, aciertos, segundos y las operaciones falladas. Nada más.
+
+Privacidad: usa apodos o números de lista, no nombres reales, e informa a las
+familias. La clave y la dirección van en config.js y son visibles; por eso la hoja
+solo acepta añadir filas, y leer los resultados exige TEACHER_PW.
+Protecciones del script: valida y limita cada dato, evita fórmulas en las celdas,
+limita a 150 filas por minuto y 20.000 en total, bloquea 10 minutos tras 5
+contraseñas erróneas, y el panel recibe una sesión de 30 días en vez de guardar
+la contraseña. Si ya habías publicado una versión anterior del script, pega el
+código nuevo y haz Implementar > Gestionar implementaciones > editar > Nueva versión.
+Si cambias el código de Codigo.gs, vuelve a hacer Implementar > Gestionar
+implementaciones > editar > Nueva versión.
