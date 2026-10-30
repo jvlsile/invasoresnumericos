@@ -1,0 +1,30 @@
+PATRULLA NUMÉRICA · paquete PWA
+================================
+
+Contenido
+  index.html            el juego completo (un solo archivo)
+  manifest.webmanifest  nombre, colores e iconos de la app
+  sw.js                 service worker: permite jugar sin conexión
+  icons/                iconos 192, 512 y maskable
+
+Cómo publicarlo
+  1. Sube la carpeta completa a un alojamiento con HTTPS (Netlify, GitHub Pages,
+     Cloudflare Pages, el servidor del centro...). Una PWA no se instala desde file://.
+  2. Abre la dirección en Chrome o Edge (Android, Windows, ChromeOS) y elige
+     "Instalar app". En iPad/iPhone: Safari > Compartir > "Añadir a pantalla de inicio".
+  3. La primera visita necesita internet para descargar el juego y las fuentes.
+     Después funciona sin conexión.
+
+Qué funciona sin Claude
+  Solo, Dos en una pantalla (cooperativo en tableta o pizarra digital): sí.
+  Sala en línea de 2 a 4 dispositivos: no. Ese modo usa la conexión en tiempo real
+  de Claude y aquí se desactiva solo. Para tenerlo en una web propia hace falta
+  un servidor de mensajes (WebSocket); se puede añadir después.
+
+Actualizar
+  Cuando cambies index.html, sube el número de VERSION en sw.js
+  (por ejemplo 'patrulla-v2') para que los dispositivos descarguen la versión nueva.
+
+Privacidad
+  No hay cuentas, anuncios ni envío de datos. Solo se guardan en el dispositivo
+  los ajustes, el nombre que escriba el niño y el récord de cada curso.
